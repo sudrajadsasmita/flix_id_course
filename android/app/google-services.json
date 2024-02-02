@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1086699252268",
+    "project_id": "flix-id-course-cd76a",
+    "storage_bucket": "flix-id-course-cd76a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086699252268:android:0edea997ef5d56952dff89",
+        "android_client_info": {
+          "package_name": "com.example.flix_id_course"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVUgZW0QIxjqjoB7-ND3VnTfs5R-ev1SU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086699252268:android:487c5a228061ce6f2dff89",
+        "android_client_info": {
+          "package_name": "com.ftnstudio.flix_id_course"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVUgZW0QIxjqjoB7-ND3VnTfs5R-ev1SU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
