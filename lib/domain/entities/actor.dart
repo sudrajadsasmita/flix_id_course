@@ -6,6 +6,8 @@ part 'actor.freezed.dart';
 class Actor with _$Actor {
   factory Actor({required String name, String? profilePath}) = _Actor;
 
-  factory Actor.fromJSON(Map<String, dynamic> json) =>
-      Actor(name: json["name"], profilePath: json["profile_path"]);
+  factory Actor.fromJSON(Map<String, dynamic> json) => Actor(
+        name: json["name"],
+        profilePath: json["profile_path"],
+      );
 }

@@ -1,42 +1,118 @@
-import 'package:flix_id_course/domain/usecases/login/login.dart';
-import 'package:flix_id_course/presentation/pages/main_page/main_page.dart';
+import 'dart:ffi';
+
+import 'package:flix_id_course/presentation/extensions/build_context_extentions.dart';
+import 'package:flix_id_course/presentation/misc/method.dart';
+import 'package:flix_id_course/presentation/providers/router/router_provider.dart';
 import 'package:flix_id_course/presentation/providers/usecase/login_provider.dart';
+import 'package:flix_id_course/presentation/providers/user_data/user_data_provider.dart';
+import 'package:flix_id_course/presentation/widgets/flix_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginPage extends ConsumerWidget {
-  const LoginPage({super.key});
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(
+      userDataProvider,
+      (previous, next) {
+        if (next is AsyncData) {
+          if (next.value != null) {
+            ref.read(routerProvider).goNamed("main");
+          }
+        } else if (next is AsyncError) {
+          context.showSnackBar(
+            next.error.toString(),
+          );
+        }
+      },
+    );
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Login Page"),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Login login = ref.watch(loginProvider);
-            login(LoginParams(
-                    email: "sudrajad.dwi@gmail.com", password: "uwik1718097"))
-                .then((result) {
-              if (result.isSuccess) {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => MainPage(user: result.resultValue!),
+      body: ListView(
+        children: [
+          verticalSpace(100),
+          Center(
+            child: Image.asset(
+              "assets/flix_logo.png",
+              width: 150.0,
+            ),
+          ),
+          verticalSpace(100),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+            ),
+            child: Column(
+              children: [
+                FlixTextField(
+                  labelText: "Email",
+                  controller: emailController,
+                ),
+                verticalSpace(24.0),
+                FlixTextField(
+                  labelText: "Password",
+                  controller: passwordController,
+                  obscureText: true,
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                );
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(result.errorMessage!),
-                  ),
-                );
-              }
-            });
-          },
-          child: const Text("Login"),
-        ),
+                ),
+                verticalSpace(24.0),
+                switch (ref.watch(userDataProvider)) {
+                  AsyncData(:final value) => value == null
+                      ? SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              ref.read(userDataProvider.notifier).login(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                  );
+                            },
+                            child: const Text(
+                              "Login",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        )
+                      : const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                  _ => const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                },
+                verticalSpace(24.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Don't have account? "),
+                    TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Register here",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ))
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
