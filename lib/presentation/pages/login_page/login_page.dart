@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flix_id_course/presentation/extensions/build_context_extentions.dart';
 import 'package:flix_id_course/presentation/misc/method.dart';
 import 'package:flix_id_course/presentation/providers/router/router_provider.dart';
-import 'package:flix_id_course/presentation/providers/usecase/login_provider.dart';
 import 'package:flix_id_course/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flix_id_course/presentation/widgets/flix_text_field.dart';
 import 'package:flutter/material.dart';
@@ -100,13 +97,16 @@ class LoginPage extends ConsumerWidget {
                   children: [
                     const Text("Don't have account? "),
                     TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Register here",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ))
+                      onPressed: () {
+                        ref.read(routerProvider).goNamed("register");
+                      },
+                      child: const Text(
+                        "Register here",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ],
                 )
               ],
