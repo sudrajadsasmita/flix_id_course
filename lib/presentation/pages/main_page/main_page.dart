@@ -84,10 +84,9 @@ class _MainPageState extends ConsumerState<MainPage> {
             ],
             onTap: (index) {
               selectedPage = index;
-
               pageController.animateToPage(
                 selectedPage,
-                duration: const Duration(microseconds: 200),
+                duration: const Duration(milliseconds: 200),
                 curve: Curves.easeInOut,
               );
             },
