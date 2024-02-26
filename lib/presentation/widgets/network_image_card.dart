@@ -14,7 +14,7 @@ class NetworkImageCard extends StatelessWidget {
     this.height = 228,
     this.imageUrl,
     this.fit,
-    required this.borderRadius,
+    this.borderRadius = 24,
     this.onTap,
   });
 

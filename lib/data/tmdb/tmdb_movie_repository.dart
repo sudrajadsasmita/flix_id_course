@@ -24,7 +24,6 @@ class TmdbMovieRepository implements MovieRepository {
         "https://api.themoviedb.org/3/movie/${id}/credits?language=en-US",
         options: _options,
       );
-
       final result = List<Map<String, dynamic>>.from(response!.data["cast"]);
       return Result.success(result.map((e) => Actor.fromJSON(e)).toList());
     } on DioException catch (e) {

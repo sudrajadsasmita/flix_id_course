@@ -18,12 +18,11 @@ class NowPlaying extends _$NowPlaying {
 
     var result = await getMovieList(
         GetMovieListParam(category: MovieListCategory.nowPlaying, page: page));
-
     switch (result) {
       case Success(value: final movies):
-        AsyncData(movies);
+        state = AsyncData(movies);
       case Failed(message: _):
-        AsyncData([]);
+        state = const AsyncData([]);
     }
   }
 }
