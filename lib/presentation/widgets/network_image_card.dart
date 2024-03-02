@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class NetworkImageCard extends StatelessWidget {
@@ -32,7 +31,7 @@ class NetworkImageCard extends StatelessWidget {
         child: Stack(
           children: [
             if (imageUrl != null)
-              Center(
+              const Center(
                 child: CircularProgressIndicator(),
               ),
             if (imageUrl != null)

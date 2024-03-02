@@ -14,7 +14,7 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(
         GoRoute(
           path: "/main",
           name: "main",
-          builder: (context, state) => MainPage(),
+          builder: (context, state) => const MainPage(),
         ),
         GoRoute(
           path: "/login",
@@ -24,7 +24,7 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(
         GoRoute(
           path: "/register",
           name: "register",
-          builder: (context, state) => RegisterPage(),
+          builder: (context, state) => const RegisterPage(),
         ),
         GoRoute(
           path: "/detail",

@@ -21,7 +21,7 @@ class TmdbMovieRepository implements MovieRepository {
   Future<Result<List<Actor>>> getActors({required int id}) async {
     try {
       final response = await _dio?.get(
-        "https://api.themoviedb.org/3/movie/${id}/credits?language=en-US",
+        "https://api.themoviedb.org/3/movie/$id/credits?language=en-US",
         options: _options,
       );
       final result = List<Map<String, dynamic>>.from(response!.data["cast"]);
@@ -35,7 +35,7 @@ class TmdbMovieRepository implements MovieRepository {
   Future<Result<MovieDetail>> getDetail({required int id}) async {
     try {
       final response = await _dio?.get(
-        "https://api.themoviedb.org/3/movie/${id}?language=en-US",
+        "https://api.themoviedb.org/3/movie/$id?language=en-US",
         options: _options,
       );
 
@@ -59,7 +59,7 @@ class TmdbMovieRepository implements MovieRepository {
   }) async {
     try {
       final response = await _dio?.get(
-        "https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${page}",
+        "https://api.themoviedb.org/3/movie/$category?language=en-US&page=$page",
         options: _options,
       );
 

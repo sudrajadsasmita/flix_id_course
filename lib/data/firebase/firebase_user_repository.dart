@@ -59,7 +59,7 @@ class FirebaseUserRepository implements UserRepository {
   @override
   Future<Result<int>> getUserBalance({required String uuid}) async {
     DocumentReference<Map<String, dynamic>> documentReference =
-        _firebaseFirestore.doc('users/${uuid}');
+        _firebaseFirestore.doc('users/$uuid');
     DocumentSnapshot<Map<String, dynamic>> result =
         await documentReference.get();
     if (result.exists) {
@@ -97,7 +97,7 @@ class FirebaseUserRepository implements UserRepository {
   Future<Result<User>> updateUserBalance(
       {required String uuid, required int balance}) async {
     DocumentReference<Map<String, dynamic>> documentReference =
-        _firebaseFirestore.doc("users/${uuid}");
+        _firebaseFirestore.doc("users/$uuid");
     DocumentSnapshot<Map<String, dynamic>> result =
         await documentReference.get();
     if (result.exists) {

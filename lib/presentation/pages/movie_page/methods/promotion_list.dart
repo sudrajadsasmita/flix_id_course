@@ -25,7 +25,7 @@ List<Widget> promotionList(List<String> promotionImageFileNames) => [
                       right: e == promotionImageFileNames.last ? 24 : 0,
                     ),
                     decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage('assets/' + e)),
+                      image: DecorationImage(image: AssetImage('assets/$e')),
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ))

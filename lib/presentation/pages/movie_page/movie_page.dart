@@ -6,7 +6,6 @@ import 'package:flix_id_course/presentation/pages/movie_page/methods/user_info.d
 import 'package:flix_id_course/presentation/providers/movie/now_playing_provider.dart';
 import 'package:flix_id_course/presentation/providers/movie/upcoming_provider.dart';
 import 'package:flix_id_course/presentation/providers/router/router_provider.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -1,6 +1,4 @@
-import 'package:flix_id_course/domain/entities/user.dart';
 import 'package:flix_id_course/presentation/extensions/build_context_extentions.dart';
-import 'package:flix_id_course/presentation/misc/method.dart';
 import 'package:flix_id_course/presentation/pages/movie_page/movie_page.dart';
 import 'package:flix_id_course/presentation/pages/profile_page/profile_page.dart';
 import 'package:flix_id_course/presentation/providers/router/router_provider.dart';

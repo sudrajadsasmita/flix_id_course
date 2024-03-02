@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flix_id_course/domain/entities/movie.dart';
 import 'package:flix_id_course/presentation/misc/constant.dart';

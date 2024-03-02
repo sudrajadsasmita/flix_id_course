@@ -2,6 +2,9 @@ import 'package:flix_id_course/domain/entities/movie.dart';
 import 'package:flix_id_course/presentation/misc/constant.dart';
 import 'package:flix_id_course/presentation/misc/method.dart';
 import 'package:flix_id_course/presentation/pages/detail_page/method/background.dart';
+import 'package:flix_id_course/presentation/pages/detail_page/method/cast_and_crew.dart';
+import 'package:flix_id_course/presentation/pages/detail_page/method/movie_overview.dart';
+import 'package:flix_id_course/presentation/pages/detail_page/method/movie_short_info.dart';
 import 'package:flix_id_course/presentation/providers/movie/movie_detail_provider.dart';
 import 'package:flix_id_course/presentation/providers/router/router_provider.dart';
 import 'package:flix_id_course/presentation/widgets/back_navigation_bar.dart';
@@ -11,6 +14,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DetailPage extends ConsumerWidget {
   final Movie movie;
+
   const DetailPage({super.key, required this.movie});
 
   @override
@@ -42,14 +46,19 @@ class DetailPage extends ConsumerWidget {
                       fit: BoxFit.cover,
                     ),
                     verticalSpace(24),
-                    // ...movieShortInfo(),
+                    ...movieShortInfo(
+                      asyncMovieDetail: asyncMovieDetail,
+                      context: context,
+                    ),
                     verticalSpace(20),
-                    // ...movieOverview()
+                    ...movieOverview(
+                      asyncMovieDetail: asyncMovieDetail,
+                    ),
                     verticalSpace(40),
                   ],
                 ),
               ),
-              // ...constAndCrew()
+              ...castAndCrew(movie: movie, ref: ref),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 40,
@@ -59,7 +68,6 @@ class DetailPage extends ConsumerWidget {
                   onPressed: () {
                     // TODO: implement share button functionality
                   },
-                  child: Text("Book this movie"),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: backgroundColor,
                     backgroundColor: saffron,
@@ -67,6 +75,7 @@ class DetailPage extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
+                  child: const Text("Book this movie"),
                 ),
               ),
             ],

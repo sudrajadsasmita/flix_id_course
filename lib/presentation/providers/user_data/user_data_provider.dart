@@ -74,7 +74,7 @@ class UserData extends _$UserData {
         state = AsyncData(user);
       case Failed(:final message):
         state = AsyncError(FlutterError(message), StackTrace.current);
-        state = AsyncData(null);
+        state = const AsyncData(null);
     }
   }
 
@@ -107,13 +107,11 @@ class UserData extends _$UserData {
     String? userId = state.valueOrNull?.uuid;
     var result = await topUp(TopUpParam(amount: amount, userId: userId!));
 
-    if (userId != null) {
-      if (result.isSuccess) {
-        refreshUserData();
-        ref.read(transactionDataProvider.notifier).refreshTransactionData();
-      }
-    } else {}
-  }
+    if (result.isSuccess) {
+      refreshUserData();
+      ref.read(transactionDataProvider.notifier).refreshTransactionData();
+    }
+    }
 
   Future<void> uploadProfilePicture(
       {required User user, required File imageFile}) async {

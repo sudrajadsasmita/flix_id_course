@@ -23,7 +23,7 @@ class UpComing extends _$UpComing {
       case Success(value: final movies):
         state = AsyncData(movies);
       case Failed(message: _):
-        state = AsyncData([]);
+        state = const AsyncData([]);
     }
   }
 }
