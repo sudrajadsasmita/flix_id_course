@@ -1,4 +1,5 @@
 import 'package:flix_id_course/domain/entities/movie.dart';
+import 'package:flix_id_course/domain/entities/movie_detail.dart';
 import 'package:flix_id_course/presentation/misc/constant.dart';
 import 'package:flix_id_course/presentation/misc/method.dart';
 import 'package:flix_id_course/presentation/pages/detail_page/method/background.dart';
@@ -66,7 +67,10 @@ class DetailPage extends ConsumerWidget {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: implement share button functionality
+                    MovieDetail? movieDetail = asyncMovieDetail.valueOrNull;
+                    if (movieDetail != null) {
+                      ref.read(routerProvider).pushNamed("time-booking", extra: movieDetail);
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: backgroundColor,
