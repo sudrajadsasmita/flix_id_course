@@ -1,6 +1,18 @@
+import 'dart:ffi';
+
 import 'package:flix_id_course/domain/entities/movie_detail.dart';
+import 'package:flix_id_course/domain/entities/transaction.dart';
+import 'package:flix_id_course/presentation/extensions/build_context_extentions.dart';
+import 'package:flix_id_course/presentation/misc/constant.dart';
+import 'package:flix_id_course/presentation/misc/method.dart';
+import 'package:flix_id_course/presentation/pages/time_booking_page/method/options.dart';
+import 'package:flix_id_course/presentation/providers/router/router_provider.dart';
+import 'package:flix_id_course/presentation/providers/user_data/user_data_provider.dart';
+import 'package:flix_id_course/presentation/widgets/back_navigation_bar.dart';
+import 'package:flix_id_course/presentation/widgets/network_image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 
 class TimeBookingPage extends ConsumerStatefulWidget {
   final MovieDetail movieDetail;
@@ -11,16 +23,123 @@ class TimeBookingPage extends ConsumerStatefulWidget {
 }
 
 class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
+  final List<String> teathers = [
+    "XII Lippo Sidoarjo",
+    "CGV Sunrise Mojokerto",
+  ];
+
+  final List<DateTime> dates = List.generate(7, (index) {
+    DateTime now = DateTime.now();
+    DateTime date = DateTime(now.year, now.month, now.day);
+    return date.add(Duration(days: index));
+  });
+
+  final List<int> hours = List.generate(8, (index) => index + 12);
+
+  String? selectedTeather;
+  DateTime? selectedDate;
+  int? selectedHours;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center( 
-        child: Container(
-          child: const Center(
-            child: Text("Test"),
-          ),
+        body: ListView(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(24),
+              child: BackNavigationBar(
+                widget.movieDetail.title,
+                onTap: () => ref.read(routerProvider).pop(),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(24, 0, 24, 24),
+              child: NetworkImageCard(
+                width: MediaQuery.of(context).size.width - 48,
+                height: (MediaQuery.of(context).size.width - 48) * 0.6,
+                borderRadius: 15,
+                imageUrl:
+                    "https://image.tmdb.org/t/p/w500${widget.movieDetail.backdropPath ?? widget.movieDetail.posterPath}/",
+                fit: BoxFit.cover,
+              ),
+            ),
+            ...options(
+              title: "Select a teather",
+              options: teathers,
+              selectedItem: selectedTeather,
+              onTap: (object) => setState(() {
+                selectedTeather = object;
+              }),
+            ),
+            verticalSpace(24),
+            ...options(
+              title: "Select a date",
+              options: dates,
+              selectedItem: selectedDate,
+              converter: (date) => DateFormat('EEE, d, MMMM y').format(date),
+              onTap: (object) => setState(() {
+                selectedDate = object;
+              }),
+            ),
+            verticalSpace(24),
+            ...options(
+              title: "Select show time",
+              options: hours,
+              selectedItem: selectedHours,
+              converter: (object) => "${object}:00",
+              isOptionEnable: (hour) =>
+                  selectedDate != null &&
+                  DateTime(
+                    selectedDate!.year,
+                    selectedDate!.month,
+                    selectedDate!.day,
+                    hour,
+                  ).isAfter(DateTime.now()),
+              onTap: (object) => setState(() {
+                selectedHours = object;
+              }),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (selectedDate == null ||
+                        selectedHours == null ||
+                        selectedTeather == null) {
+                      context.showSnackBar("Please select all options");
+                    } else {
+                      Transaction transaction = Transaction(
+                        uuid: ref.read(userDataProvider).value!.uuid,
+                        title: widget.movieDetail.title,
+                        adminFee: 3000,
+                        total: 0,
+                        watchingTime: DateTime(
+                          selectedDate!.year,
+                          selectedDate!.month,
+                          selectedDate!.day,
+                        ).millisecondsSinceEpoch,
+                        transactionImage: widget.movieDetail.posterPath,
+                        theaterName: selectedTeather!,
+                      );
+                      ref.read(routerProvider).pushNamed("seat-booking",
+                          extra: (widget.movieDetail, transaction));
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                      foregroundColor: backgroundColor,
+                      backgroundColor: saffron),
+                  child: const Text("Next"),
+                ),
+              ),
+            ),
+          ],
         ),
-      ),
-    );
+      ],
+    ));
   }
 }

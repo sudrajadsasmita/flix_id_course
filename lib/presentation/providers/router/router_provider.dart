@@ -1,9 +1,11 @@
 import 'package:flix_id_course/domain/entities/movie.dart';
 import 'package:flix_id_course/domain/entities/movie_detail.dart';
+import 'package:flix_id_course/domain/entities/transaction.dart';
 import 'package:flix_id_course/presentation/pages/detail_page/detail_page.dart';
 import 'package:flix_id_course/presentation/pages/login_page/login_page.dart';
 import 'package:flix_id_course/presentation/pages/main_page/main_page.dart';
 import 'package:flix_id_course/presentation/pages/register_page/register_page.dart';
+import 'package:flix_id_course/presentation/pages/seat_booking_page/seat_booking_page.dart';
 import 'package:flix_id_course/presentation/pages/time_booking_page/time_booking_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -40,6 +42,13 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(
           name: "time-booking",
           builder: (context, state) => TimeBookingPage(
             state.extra as MovieDetail,
+          ),
+        ),
+        GoRoute(
+          path: "/seat-booking",
+          name: "seat-booking",
+          builder: (context, state) => SeatBookingPage(
+            transactionDetail: state.extra as (MovieDetail, Transaction),
           ),
         ),
       ],
