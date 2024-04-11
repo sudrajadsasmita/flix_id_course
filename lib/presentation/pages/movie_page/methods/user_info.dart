@@ -1,5 +1,6 @@
 import 'package:flix_id_course/presentation/extensions/int_extension.dart';
 import 'package:flix_id_course/presentation/misc/method.dart';
+import 'package:flix_id_course/presentation/providers/router/router_provider.dart';
 import 'package:flix_id_course/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -45,7 +46,7 @@ Widget userInfo(WidgetRef ref) => Padding(
               verticalSpace(5),
               GestureDetector(
                 onTap: () {
-                  //TODO:Go wallet page
+                  ref.read(routerProvider).pushNamed("wallet");
                 },
                 child: Row(
                   children: [

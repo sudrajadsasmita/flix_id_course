@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flix_id_course/domain/entities/movie_detail.dart';
 import 'package:flix_id_course/domain/entities/transaction.dart';
 import 'package:flix_id_course/presentation/extensions/build_context_extentions.dart';
@@ -49,14 +47,14 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(24),
+              padding: const EdgeInsets.all(24),
               child: BackNavigationBar(
                 widget.movieDetail.title,
                 onTap: () => ref.read(routerProvider).pop(),
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(24, 0, 24, 24),
+              padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
               child: NetworkImageCard(
                 width: MediaQuery.of(context).size.width - 48,
                 height: (MediaQuery.of(context).size.width - 48) * 0.6,
@@ -89,7 +87,7 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
               title: "Select show time",
               options: hours,
               selectedItem: selectedHours,
-              converter: (object) => "${object}:00",
+              converter: (object) => "$object:00",
               isOptionEnable: (hour) =>
                   selectedDate != null &&
                   DateTime(
@@ -122,6 +120,7 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
                           selectedDate!.year,
                           selectedDate!.month,
                           selectedDate!.day,
+                          selectedHours!,
                         ).millisecondsSinceEpoch,
                         transactionImage: widget.movieDetail.posterPath,
                         theaterName: selectedTeather!,

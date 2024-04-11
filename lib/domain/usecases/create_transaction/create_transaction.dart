@@ -16,7 +16,7 @@ class CreateTransaction
     var result = await _transactionRepository.createTransaction(
       transaction: params.transaction.copyWith(
           transactionTime: transactionTime,
-          id: (params.transaction.id == null)
+          id: (params.transaction.id != null)
               ? "flx-$transactionTime-${params.transaction.id}"
               : params.transaction.uuid),
     );

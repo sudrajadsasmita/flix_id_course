@@ -23,7 +23,7 @@ class FirebaseTransactionRepository implements TransactionRepository {
       var balanceResult =
           await FirebaseUserRepository().getUserBalance(uuid: transaction.uuid);
 
-      if (balanceResult.isFailed) {
+      if (!balanceResult.isFailed) {
         int previousBalance = balanceResult.resultValue!;
 
         if (previousBalance - transaction.total >= 0) {

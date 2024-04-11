@@ -37,7 +37,6 @@ class TransactionData extends _$TransactionData {
       state = const AsyncLoading();
 
       GetTransactions getTransactions = ref.read(getTransactionsProvider);
-
       var result = await getTransactions(GetTransactionsParam(uuid: user.uuid));
 
       switch (result) {

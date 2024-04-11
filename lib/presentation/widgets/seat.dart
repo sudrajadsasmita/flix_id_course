@@ -33,7 +33,7 @@ class Seat extends StatelessWidget {
             borderRadius: BorderRadius.circular(5)),
         child: Center(
           child: Text(
-            number.toString(),
+            number != null?number.toString():"",
             style: const TextStyle(
               color: backgroundColor,
               fontWeight: FontWeight.bold,
