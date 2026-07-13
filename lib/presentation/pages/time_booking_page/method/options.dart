@@ -3,7 +3,7 @@ import 'package:flix_id_course/presentation/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
 
 List<Widget> options<T>({
-  required title,
+  required String title,
   required List<T> options,
   required T? selectedItem,
   String Function(T object)? converter,

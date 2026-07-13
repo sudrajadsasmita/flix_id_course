@@ -5,5 +5,5 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'get_user_balance_provider.g.dart';
 
 @riverpod
-GetUserBalance getUserBalance(GetUserBalanceRef ref) =>
+GetUserBalance getUserBalance(Ref ref) =>
     GetUserBalance(userRepository: ref.watch(userRepositoryProvider));

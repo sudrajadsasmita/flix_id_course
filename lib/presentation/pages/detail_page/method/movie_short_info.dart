@@ -69,7 +69,7 @@ List<Widget> movieShortInfo({
           ),
           horizontalSpace(5),
           Text(
-            (asyncMovieDetail.valueOrNull?.voteAverage ?? 0).toStringAsFixed(1),
+            (asyncMovieDetail.asData?.value?.voteAverage ?? 0).toStringAsFixed(1),
           )
         ],
       ),

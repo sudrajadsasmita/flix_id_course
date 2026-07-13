@@ -6,20 +6,45 @@ part of 'get_transaction_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getTransactionsHash() => r'0a7f58d25a1e7ad93c91da57ad7ed3c73dc10570';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [getTransactions].
 @ProviderFor(getTransactions)
-final getTransactionsProvider = AutoDisposeProvider<GetTransactions>.internal(
-  getTransactions,
-  name: r'getTransactionsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$getTransactionsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final getTransactionsProvider = GetTransactionsProvider._();
 
-typedef GetTransactionsRef = AutoDisposeProviderRef<GetTransactions>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class GetTransactionsProvider extends $FunctionalProvider<GetTransactions,
+    GetTransactions, GetTransactions> with $Provider<GetTransactions> {
+  GetTransactionsProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'getTransactionsProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$getTransactionsHash();
+
+  @$internal
+  @override
+  $ProviderElement<GetTransactions> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  GetTransactions create(Ref ref) {
+    return getTransactions(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(GetTransactions value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<GetTransactions>(value),
+    );
+  }
+}
+
+String _$getTransactionsHash() => r'9f7ef18c81036e0b76d6ee0e11ffaf599403b85d';

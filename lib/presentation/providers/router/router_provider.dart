@@ -17,7 +17,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'router_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-Raw<GoRouter> router(RouterRef ref) => GoRouter(
+Raw<GoRouter> router(Ref ref) => GoRouter(
       routes: [
         GoRoute(
           path: "/main",

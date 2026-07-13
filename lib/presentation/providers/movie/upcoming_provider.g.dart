@@ -6,19 +6,46 @@ part of 'upcoming_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$upComingHash() => r'a954a2cfd4461e47a7a3dfecdea7b3a59af0e834';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [UpComing].
 @ProviderFor(UpComing)
-final upComingProvider = AsyncNotifierProvider<UpComing, List<Movie>>.internal(
-  UpComing.new,
-  name: r'upComingProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$upComingHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final upComingProvider = UpComingProvider._();
 
-typedef _$UpComing = AsyncNotifier<List<Movie>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class UpComingProvider
+    extends $AsyncNotifierProvider<UpComing, List<Movie>> {
+  UpComingProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'upComingProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$upComingHash();
+
+  @$internal
+  @override
+  UpComing create() => UpComing();
+}
+
+String _$upComingHash() => r'e0dd53e3c7acf00fe5be35295163631466b02ab4';
+
+abstract class _$UpComing extends $AsyncNotifier<List<Movie>> {
+  FutureOr<List<Movie>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref = this.ref as $Ref<AsyncValue<List<Movie>>, List<Movie>>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<AsyncValue<List<Movie>>, List<Movie>>,
+        AsyncValue<List<Movie>>,
+        Object?,
+        Object?>;
+    element.handleCreate(ref, build);
+  }
+}

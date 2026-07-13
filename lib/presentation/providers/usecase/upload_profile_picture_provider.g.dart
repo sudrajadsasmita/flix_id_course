@@ -6,22 +6,49 @@ part of 'upload_profile_picture_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$uploadProfilePictureHash() =>
-    r'57af72e64c99649f8c4fe5fadc8fd94013200b7a';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [uploadProfilePicture].
 @ProviderFor(uploadProfilePicture)
-final uploadProfilePictureProvider =
-    AutoDisposeProvider<UploadProfilePicture>.internal(
-  uploadProfilePicture,
-  name: r'uploadProfilePictureProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$uploadProfilePictureHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final uploadProfilePictureProvider = UploadProfilePictureProvider._();
 
-typedef UploadProfilePictureRef = AutoDisposeProviderRef<UploadProfilePicture>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class UploadProfilePictureProvider extends $FunctionalProvider<
+    UploadProfilePicture,
+    UploadProfilePicture,
+    UploadProfilePicture> with $Provider<UploadProfilePicture> {
+  UploadProfilePictureProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'uploadProfilePictureProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$uploadProfilePictureHash();
+
+  @$internal
+  @override
+  $ProviderElement<UploadProfilePicture> $createElement(
+          $ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  UploadProfilePicture create(Ref ref) {
+    return uploadProfilePicture(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(UploadProfilePicture value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<UploadProfilePicture>(value),
+    );
+  }
+}
+
+String _$uploadProfilePictureHash() =>
+    r'd4bf9009c7345fe6f29640f2dade1b9e90ca99ef';

@@ -98,13 +98,13 @@ class UserData extends _$UserData {
         state = const AsyncData(null);
       case Failed(:final message):
         state = AsyncError(FlutterError(message), StackTrace.current);
-        state = AsyncData(state.valueOrNull);
+        state = AsyncData(state.asData?.value);
     }
   }
 
   Future<void> topUp(int amount) async {
     TopUp topUp = ref.read(topUpProvider);
-    String? userId = state.valueOrNull?.uuid;
+    String? userId = state.asData?.value?.uuid;
     var result = await topUp(TopUpParam(amount: amount, userId: userId!));
 
     if (result.isSuccess) {

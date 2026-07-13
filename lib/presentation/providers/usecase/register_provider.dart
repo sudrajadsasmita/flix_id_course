@@ -6,6 +6,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'register_provider.g.dart';
 
 @riverpod
-Register register(RegisterRef ref) => Register(
+Register register(Ref ref) => Register(
     authentication: ref.watch(authenticationProvider),
     userRepository: ref.watch(userRepositoryProvider));

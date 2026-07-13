@@ -14,9 +14,9 @@ List<Widget> userInfo(WidgetRef ref) => [
             width: 1,
           ),
           image: DecorationImage(
-            image: ref.watch(userDataProvider).valueOrNull?.photoUrl != null
+            image: ref.watch(userDataProvider).asData?.value?.photoUrl != null
                 ? NetworkImage(
-                        ref.watch(userDataProvider).valueOrNull!.photoUrl!)
+                        ref.watch(userDataProvider).asData!.value!.photoUrl!)
                     as ImageProvider
                 : const AssetImage(
                     "assets/pp-placeholder.png",
@@ -27,14 +27,14 @@ List<Widget> userInfo(WidgetRef ref) => [
       ),
       verticalSpace(20),
       Text(
-        ref.watch(userDataProvider).valueOrNull?.name ?? "",
+        ref.watch(userDataProvider).asData?.value?.name ?? "",
         style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
       Text(
-        ref.watch(userDataProvider).valueOrNull?.email ?? "",
+        ref.watch(userDataProvider).asData?.value?.email ?? "",
         style: const TextStyle(
           fontSize: 16,
         ),

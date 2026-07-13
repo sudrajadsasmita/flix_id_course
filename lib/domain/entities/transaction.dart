@@ -4,7 +4,7 @@ part 'transaction.freezed.dart';
 part 'transaction.g.dart';
 
 @freezed
-class Transaction with _$Transaction {
+abstract class Transaction with _$Transaction {
   factory Transaction({
     String? id,
     required String uuid,

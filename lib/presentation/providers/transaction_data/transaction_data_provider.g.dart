@@ -6,21 +6,47 @@ part of 'transaction_data_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$transactionDataHash() => r'dc1db14384e889b4441f4ce7e60bda8daf2cc6b4';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [TransactionData].
 @ProviderFor(TransactionData)
-final transactionDataProvider =
-    AsyncNotifierProvider<TransactionData, List<Transaction>>.internal(
-  TransactionData.new,
-  name: r'transactionDataProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$transactionDataHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final transactionDataProvider = TransactionDataProvider._();
 
-typedef _$TransactionData = AsyncNotifier<List<Transaction>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class TransactionDataProvider
+    extends $AsyncNotifierProvider<TransactionData, List<Transaction>> {
+  TransactionDataProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'transactionDataProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$transactionDataHash();
+
+  @$internal
+  @override
+  TransactionData create() => TransactionData();
+}
+
+String _$transactionDataHash() => r'cfa009383284bb9dbee5f4e2e863395a6ab9d59e';
+
+abstract class _$TransactionData extends $AsyncNotifier<List<Transaction>> {
+  FutureOr<List<Transaction>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref =
+        this.ref as $Ref<AsyncValue<List<Transaction>>, List<Transaction>>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<AsyncValue<List<Transaction>>, List<Transaction>>,
+        AsyncValue<List<Transaction>>,
+        Object?,
+        Object?>;
+    element.handleCreate(ref, build);
+  }
+}

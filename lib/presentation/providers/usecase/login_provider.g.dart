@@ -6,19 +6,45 @@ part of 'login_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$loginHash() => r'b85c62af0c870f476e38010399e884b95d91e8b5';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [login].
 @ProviderFor(login)
-final loginProvider = AutoDisposeProvider<Login>.internal(
-  login,
-  name: r'loginProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$loginHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final loginProvider = LoginProvider._();
 
-typedef LoginRef = AutoDisposeProviderRef<Login>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class LoginProvider extends $FunctionalProvider<Login, Login, Login>
+    with $Provider<Login> {
+  LoginProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'loginProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$loginHash();
+
+  @$internal
+  @override
+  $ProviderElement<Login> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  Login create(Ref ref) {
+    return login(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(Login value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<Login>(value),
+    );
+  }
+}
+
+String _$loginHash() => r'8cbaf54089748c4895e31216618da9b2ba97f8bc';

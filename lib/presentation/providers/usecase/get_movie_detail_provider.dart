@@ -5,5 +5,5 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'get_movie_detail_provider.g.dart';
 
 @riverpod
-GetMovieDetail getMovieDetail(GetMovieDetailRef ref) =>
+GetMovieDetail getMovieDetail(Ref ref) =>
     GetMovieDetail(movieRepository: ref.watch(movieRepositoryProvider));

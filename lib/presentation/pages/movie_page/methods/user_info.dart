@@ -15,9 +15,9 @@ Widget userInfo(WidgetRef ref) => Padding(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                image: ref.watch(userDataProvider).valueOrNull?.photoUrl != null
+                image: ref.watch(userDataProvider).asData?.value?.photoUrl != null
                     ? NetworkImage(
-                            ref.watch(userDataProvider).valueOrNull!.photoUrl!)
+                            ref.watch(userDataProvider).asData!.value!.photoUrl!)
                         as ImageProvider
                     : const AssetImage("assets/pp-placeholder.png"),
                 fit: BoxFit.cover,

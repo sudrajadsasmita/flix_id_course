@@ -8,7 +8,7 @@ Widget movieScreen() => Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            saffron.withOpacity(0.33),
+            saffron.withValues(alpha: 0.33),
             Colors.transparent,
           ],
           begin: Alignment.topCenter,

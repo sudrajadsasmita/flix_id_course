@@ -9,7 +9,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'movie_detail_provider.g.dart';
 
 @riverpod
-Future<MovieDetail?> movieDetail(MovieDetailRef ref,
+Future<MovieDetail?> movieDetail(Ref ref,
     {required Movie movie}) async {
   GetMovieDetail getMovieDetail = ref.read(getMovieDetailProvider);
   var movieDetailResult =

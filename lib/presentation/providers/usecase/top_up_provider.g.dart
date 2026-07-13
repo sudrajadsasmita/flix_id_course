@@ -6,19 +6,45 @@ part of 'top_up_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$topUpHash() => r'98d0684cc7e89db605aa67c6a54af7bf3210b616';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [topUp].
 @ProviderFor(topUp)
-final topUpProvider = AutoDisposeProvider<TopUp>.internal(
-  topUp,
-  name: r'topUpProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$topUpHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final topUpProvider = TopUpProvider._();
 
-typedef TopUpRef = AutoDisposeProviderRef<TopUp>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class TopUpProvider extends $FunctionalProvider<TopUp, TopUp, TopUp>
+    with $Provider<TopUp> {
+  TopUpProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'topUpProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$topUpHash();
+
+  @$internal
+  @override
+  $ProviderElement<TopUp> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  TopUp create(Ref ref) {
+    return topUp(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(TopUp value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<TopUp>(value),
+    );
+  }
+}
+
+String _$topUpHash() => r'e6414f907aaf0fe21990ecffbdffa902c228ea61';

@@ -8,7 +8,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'actors_provider.g.dart';
 
 @riverpod
-Future<List<Actor>> actors(ActorsRef ref, {required int movieId}) async {
+Future<List<Actor>> actors(Ref ref, {required int movieId}) async {
   GetActors getActors = ref.read(getActorsProvider);
 
   var actorsResult = await getActors(GetActorsParam(movieId: movieId));

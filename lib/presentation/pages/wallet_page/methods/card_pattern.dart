@@ -17,8 +17,8 @@ Widget cardPattern() => Column(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Colors.white.withOpacity(0.05 * (rowIndex + 1) + 0.05),
-                    Colors.white.withOpacity((0.05 * rowIndex) + 0.05)
+                    Colors.white.withValues(alpha: 0.05 * (rowIndex + 1) + 0.05),
+                    Colors.white.withValues(alpha: (0.05 * rowIndex) + 0.05)
                   ],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,

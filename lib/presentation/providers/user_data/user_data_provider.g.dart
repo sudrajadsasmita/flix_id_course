@@ -6,19 +6,45 @@ part of 'user_data_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userDataHash() => r'9d7f755bc2e68ca8563c63fdf33d74e447585994';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [UserData].
 @ProviderFor(UserData)
-final userDataProvider = AsyncNotifierProvider<UserData, User?>.internal(
-  UserData.new,
-  name: r'userDataProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$userDataHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final userDataProvider = UserDataProvider._();
 
-typedef _$UserData = AsyncNotifier<User?>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class UserDataProvider extends $AsyncNotifierProvider<UserData, User?> {
+  UserDataProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'userDataProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$userDataHash();
+
+  @$internal
+  @override
+  UserData create() => UserData();
+}
+
+String _$userDataHash() => r'39124024312e48cd643f6f19196dfbfeb02194e1';
+
+abstract class _$UserData extends $AsyncNotifier<User?> {
+  FutureOr<User?> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref = this.ref as $Ref<AsyncValue<User?>, User?>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<AsyncValue<User?>, User?>,
+        AsyncValue<User?>,
+        Object?,
+        Object?>;
+    element.handleCreate(ref, build);
+  }
+}

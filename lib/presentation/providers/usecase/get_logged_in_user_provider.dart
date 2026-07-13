@@ -6,6 +6,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'get_logged_in_user_provider.g.dart';
 
 @riverpod
-GetLoggedInUser getLoggedInUser(GetLoggedInUserRef ref) => GetLoggedInUser(
+GetLoggedInUser getLoggedInUser(Ref ref) => GetLoggedInUser(
     authentication: ref.watch(authenticationProvider),
     userRepository: ref.watch(userRepositoryProvider));

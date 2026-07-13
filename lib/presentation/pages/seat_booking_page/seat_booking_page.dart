@@ -17,8 +17,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class SeatBookingPage extends ConsumerStatefulWidget {
   final (MovieDetail, Transaction) transactionDetail;
 
-  const SeatBookingPage({Key? key, required this.transactionDetail})
-      : super(key: key);
+  const SeatBookingPage({super.key, required this.transactionDetail});
 
   @override
   ConsumerState<SeatBookingPage> createState() => _SeatBookingPageState();
@@ -118,7 +117,7 @@ class _SeatBookingPageState extends ConsumerState<SeatBookingPage> {
     );
   }
 
-  void onSeatTap(seatNumber) {
+  void onSeatTap(int seatNumber) {
     if ((!selectedSeats.contains(seatNumber)) &&
         !reservedSeats.contains(seatNumber)) {
       setState(() {
@@ -131,7 +130,7 @@ class _SeatBookingPageState extends ConsumerState<SeatBookingPage> {
     }
   }
 
-  SeatStatus seatStatusChecker(seatNumber) => reservedSeats.contains(seatNumber)
+  SeatStatus seatStatusChecker(int seatNumber) => reservedSeats.contains(seatNumber)
       ? SeatStatus.reserved
       : selectedSeats.contains(seatNumber)
           ? SeatStatus.selected

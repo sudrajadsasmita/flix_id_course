@@ -5,5 +5,5 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'upload_profile_picture_provider.g.dart';
 
 @riverpod
-UploadProfilePicture uploadProfilePicture(UploadProfilePictureRef ref) =>
+UploadProfilePicture uploadProfilePicture(Ref ref) =>
     UploadProfilePicture(userRepository: ref.watch(userRepositoryProvider));

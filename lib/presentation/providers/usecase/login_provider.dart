@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'login_provider.g.dart';
 
 @riverpod
-Login login(LoginRef ref) => Login(
+Login login(Ref ref) => Login(
       authentication: ref.watch(authenticationProvider),
       userRepository: ref.watch(userRepositoryProvider),
     );

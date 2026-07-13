@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class LoginPage extends ConsumerWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  LoginPage({Key? key}) : super(key: key);
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

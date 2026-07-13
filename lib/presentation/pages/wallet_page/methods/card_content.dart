@@ -16,11 +16,11 @@ Widget cardContent(WidgetRef ref) => Padding(
                 "Current Balance",
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.white.withOpacity(0.5),
+                  color: Colors.white.withValues(alpha: 0.5),
                 ),
               ),
               Text(
-                (ref.watch(userDataProvider).valueOrNull?.balance ?? 0)
+                (ref.watch(userDataProvider).asData?.value?.balance ?? 0)
                     .toIDRCurrencyFormat(),
                 style: const TextStyle(
                   fontSize: 18,
@@ -29,7 +29,7 @@ Widget cardContent(WidgetRef ref) => Padding(
                 ),
               ),
               verticalSpace(10),
-              Text(ref.watch(userDataProvider).valueOrNull?.name ?? "")
+              Text(ref.watch(userDataProvider).asData?.value?.name ?? "")
             ],
           ),
           Column(

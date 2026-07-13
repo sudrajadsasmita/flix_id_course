@@ -5,5 +5,5 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'get_transaction_provider.g.dart';
 
 @riverpod
-GetTransactions getTransactions(GetTransactionsRef ref) => GetTransactions(
+GetTransactions getTransactions(Ref ref) => GetTransactions(
     transactionRepository: ref.watch(transactionRepositoryProvider));

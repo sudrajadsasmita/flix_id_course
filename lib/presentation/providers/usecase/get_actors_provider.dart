@@ -5,5 +5,5 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'get_actors_provider.g.dart';
 
 @riverpod
-GetActors getActors(GetActorsRef ref) =>
+GetActors getActors(Ref ref) =>
     GetActors(movieRepository: ref.watch(movieRepositoryProvider));

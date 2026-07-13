@@ -27,7 +27,7 @@ class _MainPageState extends ConsumerState<MainPage> {
   @override
   void initState() {
     super.initState();
-    User? user = ref.read(userDataProvider).valueOrNull;
+    User? user = ref.read(userDataProvider).asData?.value;
 
     if (widget.imageFile != null && user != null) {
       ref

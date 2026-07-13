@@ -6,153 +6,79 @@ part of 'movie_detail_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$movieDetailHash() => r'73295434dc945d376d4d7e963e161e7244dc4a7b';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [movieDetail].
 @ProviderFor(movieDetail)
-const movieDetailProvider = MovieDetailFamily();
+final movieDetailProvider = MovieDetailFamily._();
 
-/// See also [movieDetail].
-class MovieDetailFamily extends Family<AsyncValue<MovieDetail?>> {
-  /// See also [movieDetail].
-  const MovieDetailFamily();
-
-  /// See also [movieDetail].
-  MovieDetailProvider call({
-    required Movie movie,
-  }) {
-    return MovieDetailProvider(
-      movie: movie,
-    );
-  }
-
-  @override
-  MovieDetailProvider getProviderOverride(
-    covariant MovieDetailProvider provider,
-  ) {
-    return call(
-      movie: provider.movie,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'movieDetailProvider';
-}
-
-/// See also [movieDetail].
-class MovieDetailProvider extends AutoDisposeFutureProvider<MovieDetail?> {
-  /// See also [movieDetail].
-  MovieDetailProvider({
-    required Movie movie,
-  }) : this._internal(
-          (ref) => movieDetail(
-            ref as MovieDetailRef,
-            movie: movie,
-          ),
-          from: movieDetailProvider,
+final class MovieDetailProvider extends $FunctionalProvider<
+        AsyncValue<MovieDetail?>, MovieDetail?, FutureOr<MovieDetail?>>
+    with $FutureModifier<MovieDetail?>, $FutureProvider<MovieDetail?> {
+  MovieDetailProvider._(
+      {required MovieDetailFamily super.from, required Movie super.argument})
+      : super(
+          retry: null,
           name: r'movieDetailProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$movieDetailHash,
-          dependencies: MovieDetailFamily._dependencies,
-          allTransitiveDependencies:
-              MovieDetailFamily._allTransitiveDependencies,
-          movie: movie,
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
         );
 
-  MovieDetailProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.movie,
-  }) : super.internal();
-
-  final Movie movie;
+  @override
+  String debugGetCreateSourceHash() => _$movieDetailHash();
 
   @override
-  Override overrideWith(
-    FutureOr<MovieDetail?> Function(MovieDetailRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: MovieDetailProvider._internal(
-        (ref) => create(ref as MovieDetailRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        movie: movie,
-      ),
-    );
+  String toString() {
+    return r'movieDetailProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  AutoDisposeFutureProviderElement<MovieDetail?> createElement() {
-    return _MovieDetailProviderElement(this);
+  $FutureProviderElement<MovieDetail?> $createElement(
+          $ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<MovieDetail?> create(Ref ref) {
+    final argument = this.argument as Movie;
+    return movieDetail(
+      ref,
+      movie: argument,
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is MovieDetailProvider && other.movie == movie;
+    return other is MovieDetailProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, movie.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-mixin MovieDetailRef on AutoDisposeFutureProviderRef<MovieDetail?> {
-  /// The parameter `movie` of this provider.
-  Movie get movie;
-}
+String _$movieDetailHash() => r'77c45d8d304a403e4d0c0a7d7c815a881c377b2d';
 
-class _MovieDetailProviderElement
-    extends AutoDisposeFutureProviderElement<MovieDetail?> with MovieDetailRef {
-  _MovieDetailProviderElement(super.provider);
+final class MovieDetailFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<MovieDetail?>, Movie> {
+  MovieDetailFamily._()
+      : super(
+          retry: null,
+          name: r'movieDetailProvider',
+          dependencies: null,
+          $allTransitiveDependencies: null,
+          isAutoDispose: true,
+        );
+
+  MovieDetailProvider call({
+    required Movie movie,
+  }) =>
+      MovieDetailProvider._(argument: movie, from: this);
 
   @override
-  Movie get movie => (origin as MovieDetailProvider).movie;
+  String toString() => r'movieDetailProvider';
 }
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

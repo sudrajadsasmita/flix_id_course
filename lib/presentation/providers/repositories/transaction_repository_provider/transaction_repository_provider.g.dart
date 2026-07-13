@@ -6,23 +6,49 @@ part of 'transaction_repository_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$transactionRepositoryHash() =>
-    r'e21e9bedc8f1f9af8794d244b17cd366a5ae0ee3';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [transactionRepository].
 @ProviderFor(transactionRepository)
-final transactionRepositoryProvider =
-    AutoDisposeProvider<TransactionRepository>.internal(
-  transactionRepository,
-  name: r'transactionRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$transactionRepositoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final transactionRepositoryProvider = TransactionRepositoryProvider._();
 
-typedef TransactionRepositoryRef
-    = AutoDisposeProviderRef<TransactionRepository>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class TransactionRepositoryProvider extends $FunctionalProvider<
+    TransactionRepository,
+    TransactionRepository,
+    TransactionRepository> with $Provider<TransactionRepository> {
+  TransactionRepositoryProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'transactionRepositoryProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$transactionRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<TransactionRepository> $createElement(
+          $ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  TransactionRepository create(Ref ref) {
+    return transactionRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(TransactionRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<TransactionRepository>(value),
+    );
+  }
+}
+
+String _$transactionRepositoryHash() =>
+    r'548cb2eb57df666a66715a6e84b8df3df25475f7';

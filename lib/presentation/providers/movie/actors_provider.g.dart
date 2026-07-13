@@ -6,152 +6,79 @@ part of 'actors_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$actorsHash() => r'92008bb961e551dfe9e7086eb3424c22afcf6ebe';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [actors].
 @ProviderFor(actors)
-const actorsProvider = ActorsFamily();
+final actorsProvider = ActorsFamily._();
 
-/// See also [actors].
-class ActorsFamily extends Family<AsyncValue<List<Actor>>> {
-  /// See also [actors].
-  const ActorsFamily();
-
-  /// See also [actors].
-  ActorsProvider call({
-    required int movieId,
-  }) {
-    return ActorsProvider(
-      movieId: movieId,
-    );
-  }
-
-  @override
-  ActorsProvider getProviderOverride(
-    covariant ActorsProvider provider,
-  ) {
-    return call(
-      movieId: provider.movieId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'actorsProvider';
-}
-
-/// See also [actors].
-class ActorsProvider extends AutoDisposeFutureProvider<List<Actor>> {
-  /// See also [actors].
-  ActorsProvider({
-    required int movieId,
-  }) : this._internal(
-          (ref) => actors(
-            ref as ActorsRef,
-            movieId: movieId,
-          ),
-          from: actorsProvider,
+final class ActorsProvider extends $FunctionalProvider<AsyncValue<List<Actor>>,
+        List<Actor>, FutureOr<List<Actor>>>
+    with $FutureModifier<List<Actor>>, $FutureProvider<List<Actor>> {
+  ActorsProvider._(
+      {required ActorsFamily super.from, required int super.argument})
+      : super(
+          retry: null,
           name: r'actorsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$actorsHash,
-          dependencies: ActorsFamily._dependencies,
-          allTransitiveDependencies: ActorsFamily._allTransitiveDependencies,
-          movieId: movieId,
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
         );
 
-  ActorsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.movieId,
-  }) : super.internal();
-
-  final int movieId;
+  @override
+  String debugGetCreateSourceHash() => _$actorsHash();
 
   @override
-  Override overrideWith(
-    FutureOr<List<Actor>> Function(ActorsRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ActorsProvider._internal(
-        (ref) => create(ref as ActorsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        movieId: movieId,
-      ),
-    );
+  String toString() {
+    return r'actorsProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  AutoDisposeFutureProviderElement<List<Actor>> createElement() {
-    return _ActorsProviderElement(this);
+  $FutureProviderElement<List<Actor>> $createElement(
+          $ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<Actor>> create(Ref ref) {
+    final argument = this.argument as int;
+    return actors(
+      ref,
+      movieId: argument,
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is ActorsProvider && other.movieId == movieId;
+    return other is ActorsProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, movieId.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-mixin ActorsRef on AutoDisposeFutureProviderRef<List<Actor>> {
-  /// The parameter `movieId` of this provider.
-  int get movieId;
-}
+String _$actorsHash() => r'2ef01c31bc180d9bf2aedb35fd9c49158fca00ba';
 
-class _ActorsProviderElement
-    extends AutoDisposeFutureProviderElement<List<Actor>> with ActorsRef {
-  _ActorsProviderElement(super.provider);
+final class ActorsFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<List<Actor>>, int> {
+  ActorsFamily._()
+      : super(
+          retry: null,
+          name: r'actorsProvider',
+          dependencies: null,
+          $allTransitiveDependencies: null,
+          isAutoDispose: true,
+        );
+
+  ActorsProvider call({
+    required int movieId,
+  }) =>
+      ActorsProvider._(argument: movieId, from: this);
 
   @override
-  int get movieId => (origin as ActorsProvider).movieId;
+  String toString() => r'actorsProvider';
 }
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

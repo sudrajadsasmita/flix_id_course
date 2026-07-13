@@ -5,6 +5,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'create_transaction_provider.g.dart';
 
 @riverpod
-CreateTransaction createTransaction(CreateTransactionRef ref) =>
+CreateTransaction createTransaction(Ref ref) =>
     CreateTransaction(
         transactionRepository: ref.watch(transactionRepositoryProvider));

@@ -6,19 +6,46 @@ part of 'get_actors_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getActorsHash() => r'40b882d50acd16c29dabf53fbf022d66f2d7cd80';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [getActors].
 @ProviderFor(getActors)
-final getActorsProvider = AutoDisposeProvider<GetActors>.internal(
-  getActors,
-  name: r'getActorsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$getActorsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final getActorsProvider = GetActorsProvider._();
 
-typedef GetActorsRef = AutoDisposeProviderRef<GetActors>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class GetActorsProvider
+    extends $FunctionalProvider<GetActors, GetActors, GetActors>
+    with $Provider<GetActors> {
+  GetActorsProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'getActorsProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$getActorsHash();
+
+  @$internal
+  @override
+  $ProviderElement<GetActors> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  GetActors create(Ref ref) {
+    return getActors(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(GetActors value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<GetActors>(value),
+    );
+  }
+}
+
+String _$getActorsHash() => r'ef9c5268885e9dd4da47012c32c55eb02a44b19b';

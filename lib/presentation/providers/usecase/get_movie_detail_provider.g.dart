@@ -6,20 +6,46 @@ part of 'get_movie_detail_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getMovieDetailHash() => r'c3dc2f289f084e86ab0a9dffd2a4b1fbc3275de8';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [getMovieDetail].
 @ProviderFor(getMovieDetail)
-final getMovieDetailProvider = AutoDisposeProvider<GetMovieDetail>.internal(
-  getMovieDetail,
-  name: r'getMovieDetailProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$getMovieDetailHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final getMovieDetailProvider = GetMovieDetailProvider._();
 
-typedef GetMovieDetailRef = AutoDisposeProviderRef<GetMovieDetail>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class GetMovieDetailProvider
+    extends $FunctionalProvider<GetMovieDetail, GetMovieDetail, GetMovieDetail>
+    with $Provider<GetMovieDetail> {
+  GetMovieDetailProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'getMovieDetailProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$getMovieDetailHash();
+
+  @$internal
+  @override
+  $ProviderElement<GetMovieDetail> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  GetMovieDetail create(Ref ref) {
+    return getMovieDetail(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(GetMovieDetail value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<GetMovieDetail>(value),
+    );
+  }
+}
+
+String _$getMovieDetailHash() => r'e1b45b7dbd143e86b55ab5b5d1d25042fa9fde59';

@@ -20,7 +20,7 @@ class DetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var asyncMovieDetail = ref.watch(MovieDetailProvider(movie: movie));
+    var asyncMovieDetail = ref.watch(movieDetailProvider(movie: movie));
     return Scaffold(
       body: Stack(
         children: [
@@ -41,7 +41,7 @@ class DetailPage extends ConsumerWidget {
                       width: MediaQuery.of(context).size.width - 48,
                       height: (MediaQuery.of(context).size.width - 48) * 0.6,
                       borderRadius: 15.0,
-                      imageUrl: asyncMovieDetail.valueOrNull != null
+                      imageUrl: asyncMovieDetail.asData?.value != null
                           ? "https://image.tmdb.org/t/p/w500/${asyncMovieDetail.value?.backdropPath ?? movie.posterPath}"
                           : null,
                       fit: BoxFit.cover,
@@ -67,7 +67,7 @@ class DetailPage extends ConsumerWidget {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    MovieDetail? movieDetail = asyncMovieDetail.valueOrNull;
+                    MovieDetail? movieDetail = asyncMovieDetail.asData?.value;
                     if (movieDetail != null) {
                       ref.read(routerProvider).pushNamed("time-booking", extra: movieDetail);
                     }

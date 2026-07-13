@@ -14,7 +14,7 @@ part 'transaction_data_provider.g.dart';
 class TransactionData extends _$TransactionData {
   @override
   Future<List<Transaction>> build() async {
-    User? user = ref.read(userDataProvider).valueOrNull;
+    User? user = ref.read(userDataProvider).asData?.value;
 
     if (user != null) {
       state = const AsyncLoading();
@@ -31,7 +31,7 @@ class TransactionData extends _$TransactionData {
   }
 
   Future<void> refreshTransactionData() async {
-    User? user = ref.read(userDataProvider).valueOrNull;
+    User? user = ref.read(userDataProvider).asData?.value;
 
     if (user != null) {
       state = const AsyncLoading();
@@ -44,7 +44,7 @@ class TransactionData extends _$TransactionData {
           state = AsyncData(transaction);
         case Failed(:final message):
           state = AsyncError(FlutterError(message), StackTrace.current);
-          state = AsyncData(state.valueOrNull ?? const []);
+          state = AsyncData(state.asData?.value ?? const []);
       }
     }
   }

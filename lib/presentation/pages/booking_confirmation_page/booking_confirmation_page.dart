@@ -128,23 +128,22 @@ class BookingConfirmationWidget extends ConsumerWidget {
                           id: "flx-$transactionTime-${transaction.uuid}");
                       CreateTransaction createTransaction =
                           ref.read(createTransactionProvider);
-                      print(transactionCreate.toJson());
-                      await createTransaction(CreateTransactionParam(
-                              transaction: transactionCreate))
-                          .then((result) {
-                        switch (result) {
-                          case Success(value: _):
-                            ref
-                                .read(transactionDataProvider.notifier)
-                                .refreshTransactionData();
-                            ref
-                                .read(userDataProvider.notifier)
-                                .refreshUserData();
-                            ref.read(routerProvider).goNamed("main");
-                          case Failed(:final message):
-                            context.showSnackBar(message);
-                        }
-                      });
+                      var result = await createTransaction(
+                          CreateTransactionParam(
+                              transaction: transactionCreate));
+                      if (!context.mounted) return;
+                      switch (result) {
+                        case Success(value: _):
+                          ref
+                              .read(transactionDataProvider.notifier)
+                              .refreshTransactionData();
+                          ref
+                              .read(userDataProvider.notifier)
+                              .refreshUserData();
+                          ref.read(routerProvider).goNamed("main");
+                        case Failed(:final message):
+                          context.showSnackBar(message);
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: saffron,

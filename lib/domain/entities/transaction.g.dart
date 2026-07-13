@@ -6,25 +6,24 @@ part of 'transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
-    _$TransactionImpl(
+_Transaction _$TransactionFromJson(Map<String, dynamic> json) => _Transaction(
       id: json['id'] as String?,
       uuid: json['uuid'] as String,
-      transactionTime: json['transactionTime'] as int?,
+      transactionTime: (json['transactionTime'] as num?)?.toInt(),
       transactionImage: json['transactionImage'] as String?,
       title: json['title'] as String,
       seats:
           (json['seats'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               const [],
       theaterName: json['theaterName'] as String?,
-      watchingTime: json['watchingTime'] as int?,
-      ticketAmount: json['ticketAmount'] as int?,
-      ticketPrice: json['ticketPrice'] as int?,
-      adminFee: json['adminFee'] as int,
-      total: json['total'] as int,
+      watchingTime: (json['watchingTime'] as num?)?.toInt(),
+      ticketAmount: (json['ticketAmount'] as num?)?.toInt(),
+      ticketPrice: (json['ticketPrice'] as num?)?.toInt(),
+      adminFee: (json['adminFee'] as num).toInt(),
+      total: (json['total'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$TransactionImplToJson(_$TransactionImpl instance) =>
+Map<String, dynamic> _$TransactionToJson(_Transaction instance) =>
     <String, dynamic>{
       'id': instance.id,
       'uuid': instance.uuid,

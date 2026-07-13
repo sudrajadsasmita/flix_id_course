@@ -30,7 +30,7 @@ Widget searchBar(BuildContext context) => Row(
             child: ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
-                  shape: MaterialStateProperty.all<OutlinedBorder>(
+                  shape: WidgetStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ))),

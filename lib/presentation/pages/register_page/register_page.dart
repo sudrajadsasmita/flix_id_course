@@ -6,7 +6,6 @@ import 'package:flix_id_course/presentation/providers/router/router_provider.dar
 import 'package:flix_id_course/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flix_id_course/presentation/widgets/flix_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 

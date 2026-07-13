@@ -6,20 +6,45 @@ part of 'movie_repository_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$movieRepositoryHash() => r'946c5774e7751b537d79db5545fcbc1912191144';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [movieRepository].
 @ProviderFor(movieRepository)
-final movieRepositoryProvider = AutoDisposeProvider<MovieRepository>.internal(
-  movieRepository,
-  name: r'movieRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$movieRepositoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final movieRepositoryProvider = MovieRepositoryProvider._();
 
-typedef MovieRepositoryRef = AutoDisposeProviderRef<MovieRepository>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class MovieRepositoryProvider extends $FunctionalProvider<MovieRepository,
+    MovieRepository, MovieRepository> with $Provider<MovieRepository> {
+  MovieRepositoryProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'movieRepositoryProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$movieRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<MovieRepository> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  MovieRepository create(Ref ref) {
+    return movieRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(MovieRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<MovieRepository>(value),
+    );
+  }
+}
+
+String _$movieRepositoryHash() => r'992170f08015969dc798d07ee319270dcba0bc13';
